@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maintenance Co-pilot · Smart glasses · Live demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hifi.css?v=3"><link rel="stylesheet" href="demo.css?v=2">
+</head>
+<body>
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <!-- robot cell (wide) -->
+  <symbol id="cell" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+    <rect width="160" height="90" fill="#b9bec6"/><rect y="66" width="160" height="24" fill="#9aa0a9"/>
+    <g stroke="#e0b23a" stroke-width="1.4"><line x1="8" y1="30" x2="8" y2="70"/><line x1="34" y1="30" x2="34" y2="70"/></g>
+    <g stroke="#8a9099" stroke-width=".3"><line x1="8" y1="36" x2="34" y2="36"/><line x1="8" y1="44" x2="34" y2="44"/><line x1="8" y1="52" x2="34" y2="52"/><line x1="8" y1="60" x2="34" y2="60"/><line x1="16" y1="30" x2="16" y2="70"/><line x1="25" y1="30" x2="25" y2="70"/></g>
+    <path d="M40 60 L46 50 L66 47 L76 52 L80 60 Z" fill="#a7adb6" stroke="#7b818a" stroke-width=".6"/><rect x="40" y="60" width="40" height="6" fill="#8d939c"/>
+    <rect x="94" y="70" width="22" height="7" rx="1" fill="#6f7680"/><rect x="98" y="62" width="14" height="9" rx="1.5" fill="#7d848e"/>
+    <line x1="105" y1="63" x2="101" y2="42" stroke="#7d848e" stroke-width="6" stroke-linecap="round"/><circle cx="101" cy="42" r="4.2" fill="#6a717b"/>
+    <line x1="101" y1="42" x2="122" y2="33" stroke="#7d848e" stroke-width="5" stroke-linecap="round"/><circle cx="122" cy="33" r="4" fill="#5f666f"/>
+    <line x1="122" y1="33" x2="134" y2="43" stroke="#7d848e" stroke-width="3.5" stroke-linecap="round"/><path d="M132 42 l6 3 l-2 6 l-3 -1 z" fill="#5f666f"/>
+  </symbol>
+  <!-- factory aisle -->
+  <symbol id="aisle" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+    <rect width="160" height="90" fill="#b9bec6"/><polygon points="0,90 160,90 98,50 62,50" fill="#9aa0a9"/>
+    <g stroke="#e0b23a" stroke-width="1.2"><line x1="38" y1="90" x2="72" y2="50"/><line x1="122" y1="90" x2="88" y2="50"/></g>
+    <rect x="0" y="18" width="44" height="52" fill="#a3a9b2"/><rect x="6" y="28" width="30" height="20" fill="#8d939c"/>
+    <rect x="116" y="12" width="44" height="58" fill="#a3a9b2"/><g stroke="#868c95" stroke-width=".8"><line x1="116" y1="26" x2="160" y2="26"/><line x1="116" y1="40" x2="160" y2="40"/><line x1="116" y1="54" x2="160" y2="54"/></g>
+    <rect x="70" y="34" width="20" height="16" fill="#8d939c"/><circle cx="80" cy="38" r="2" fill="#6f7680"/>
+  </symbol>
+  <!-- electrical cabinet with main isolator -->
+  <symbol id="isolator" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+    <rect width="160" height="90" fill="#b9bec6"/><rect x="40" y="6" width="80" height="84" fill="#8f959e" stroke="#767c85"/>
+    <line x1="80" y1="6" x2="80" y2="90" stroke="#7a8089" stroke-width=".5"/>
+    <rect x="68" y="33" width="24" height="24" rx="1.5" fill="#e0b23a"/><circle cx="80" cy="45" r="7" fill="#b8453a"/>
+    <rect x="77" y="34" width="6" height="22" rx="2" fill="#9c3a31"/><rect x="88" y="47" width="5" height="6" fill="#5a6068"/>
+    <rect x="66" y="61" width="28" height="6" fill="#e6e8eb"/><rect x="48" y="14" width="20" height="10" fill="#7d838c"/>
+  </symbol>
+  <!-- close-up: J4 joint with grease ports -->
+  <symbol id="joint" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+    <rect width="160" height="90" fill="#b9bec6"/><polygon points="0,58 66,26 78,52 8,90 0,90" fill="#7d848e"/>
+    <rect x="104" y="30" width="44" height="28" rx="2" fill="#737a84"/>
+    <circle cx="84" cy="44" r="26" fill="#6f7680"/><circle cx="84" cy="44" r="18" fill="#7d848e" stroke="#636a73"/>
+    <circle cx="84" cy="22" r="3.2" fill="#2f343b"/><circle cx="102" cy="56" r="3.2" fill="#2f343b"/>
+    <path d="M60 62 Q88 72 116 50" fill="none" stroke="#2a2e34" stroke-width="3"/>
+  </symbol>
+  <symbol id="hand" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+    <path d="M130 90 L114 66 Q110 60 115 58 L136 80 L136 90 Z" fill="#4b5563"/><line x1="113" y1="62" x2="104" y2="57" stroke="#c9a227" stroke-width="1.6"/>
+  </symbol>
+  <symbol id="gun" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+    <line x1="44" y1="90" x2="79" y2="29" stroke="#3f5f8f" stroke-width="7"/><line x1="79" y1="29" x2="83" y2="24" stroke="#2f343b" stroke-width="1.6"/>
+    <path d="M30 90 L46 74 Q50 70 54 74 L44 90 Z" fill="#4b5563"/>
+  </symbol>
+</svg>
+<div class="slide" id="slide">
+  <div class="top">
+    <div class="ttl"><div class="eb">Maintenance Co-pilot · Smart glasses · Live demo · R-07 J4 grease change</div><h1><span class="id" id="sid"></span><span id="stitle"></span></h1></div>
+    <div class="phases" id="phases"></div>
+    <div class="ctl"><button id="backb" title="Back (←)">‹</button><button id="fwdb" title="Play next input (→)">›</button><button id="autob" title="Autoplay (P)"></button><button id="presb" title="Present (H)"></button><button id="fullb" title="Fullscreen (F)"></button></div>
+  </div>
+  <div class="fov" id="view"><div class="lens"><span style="width:8px;height:8px;border-radius:50%;background:#ff453a;display:inline-block"></span>Through Alex's glasses</div></div>
+  <div class="tl"><div class="groups" id="groups"></div></div>
+  <div class="legend" id="legend"></div>
+  <div class="side">
+    <div class="cardd" id="now"><div class="nph" id="ph"></div><p id="purpose"></p></div>
+    <div class="cardd"><div class="lb">Next input<span class="sp"></span></div>
+      <button class="nextb" id="nextb"><span class="ii" id="nii"></span><span class="tx"><span class="ty" id="nty"></span><span class="w" id="nw"></span></span><span class="k">→</span><span class="ap" id="ap"></span></button>
+      <div class="nextsub" id="nsub"></div></div>
+    <div class="cardd flexgrow"><div class="lb">What just happened · motion</div><div id="log"></div></div>
+    <div class="cardd"><div class="lb">Behind the glass</div><div class="bg3" id="bg3"></div></div>
+    <div class="cardd"><div class="lb">Trigger an exception<span class="sp"></span><span style="text-transform:none;letter-spacing:0;font-weight:500">any time</span></div><div class="exc" id="exc"></div></div>
+  </div>
+  <div class="hintk" id="hintk"><span class="k">→</span> next input <span class="k">Z X C</span> exceptions <span class="k">H</span> exit present</div>
+</div>
+<script src="hifi-kit.js"></script>
+<script src="flow-fw-screens.js"></script>
+<script src="flow-screens-a.js"></script>
+<script src="flow-screens-b.js"></script>
+<script src="flow-screens-c.js"></script>
+<script src="hifi-overrides.js"></script>
+<script src="demo-engine.js?v=1"></script>
+<script src="demo-scenes.js?v=1"></script>
+<script>
+document.getElementById('autob').innerHTML = ic('play');
+document.getElementById('presb').innerHTML = ic('eye');
+document.getElementById('fullb').innerHTML = '<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+</script>
+<script src="demo-ui.js?v=2"></script>
+</body>
+</html>
